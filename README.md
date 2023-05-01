@@ -1,0 +1,1 @@
+/home/alpha/program_files/projects/project_archived/project_skin_cancer/assets/Project.md
