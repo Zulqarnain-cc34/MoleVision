@@ -16,7 +16,7 @@ Dataset - <https://challenge2020.isic-archive.com/>
 1. Explore unsupervised learning on large unlabelled data.
 1. Fine tuning on a limited source of pathological data.
 
-## DatasetOverview
+## Dataset Overview
 
 Images are also provided in JPEG resized a uniform 512x512..
 
@@ -55,7 +55,7 @@ Observing the number of patients and no of total samples, Icame to the following
 
 ![](Aspose.Words.8ed4d052-d6f0-41f1-b747-e92ebd07a9f7.003.png)The distribution of patients is almost equal the sample dataset has a balanced distribution of patients based on their gender
 
-DistributionofPatientsbyGender
+**Distribution of Patients by Gender**
 
 ![](assets/Aspose.Words.8ed4d052-d6f0-41f1-b747-e92ebd07a9f7.004.png)
 
@@ -73,17 +73,17 @@ Here we see that comparatively malignant patients are of higher age and their av
 
 We can see that oral/genital and palms/soles are least likely to develop Melanoma disease whereas most of the time torso develops melanoma
 
-### VisualizingSomeImages
+### Visualizing Images
 
-Benign:
+**Benign**
 
 ![](assets/Aspose.Words.8ed4d052-d6f0-41f1-b747-e92ebd07a9f7.007.png)
 
-Malignant:
+**Malignant**
 
 ![](assets/Aspose.Words.8ed4d052-d6f0-41f1-b747-e92ebd07a9f7.008.png)
 
-### DataProcessing
+### Data Processing
 
 1. Balance the dataset to have 50 % malignant and 50 % benign images
 1. Check for Missing Values.
@@ -98,9 +98,9 @@ There are Three Different Evaluations Done.
 1. Features from images extracted using Vg166 pretrained model on imagenet dataset
 1. Tabular Dataset
 
-## EvaluationModels
+## Evaluation Models
 
-**Images:**
+**Images**
 
 These results are trained on images of size **(512,512,3)** resized to **(224,224,3)** and then augmented and preprocessed to smaller size.
 
@@ -108,7 +108,7 @@ These results are trained on images of size **(512,512,3)** resized to **(224,22
 
 Most have test\_accuracy of about 0,62 percent.
 
-**TabularData:**
+**Tabular**
 
 These results are trained on Attributes in csv file
 
@@ -125,7 +125,7 @@ Encodings with anatom prefix are hot encodings of where the tumor is present. Th
 
 ![](assets/Aspose.Words.8ed4d052-d6f0-41f1-b747-e92ebd07a9f7.010.png)
 
-**ImagesFeaturesExtractedFromVGG16:**
+**Images Features Extracted From VGG16**
 
 These results are trained on images of size **(512,512,3)** resized to **(224,224,3)** and then augmented and preprocessed through a pretrained model to get the features of the last layer and which is then used to predict the class.
 
@@ -133,11 +133,11 @@ These results are trained on images of size **(512,512,3)** resized to **(224,22
 
 Most have test\_accuracy of about 0,75 percent.
 
-## FeatureExtraction
+## Feature Extraction
 
 Instead of using object detection or segmentation we are using the features extracted at the last layer of pretrained vgg16 on imagenet dataset. It serves the same purpose and makes it easy for us to identify the Image.
 
-## KMeansonUnlabelledData
+## KMeans Clustering
 
 Iused KMeans Clustering on unlabelled images. The input is a raw image of size 224,224,3. **Number of Clusters was set to 2.**
 
@@ -147,7 +147,7 @@ Iused KMeans Clustering on unlabelled images. The input is a raw image of size 2
 
 Ascore of 0.517 means that the clustering has produced reasonably well-separated clusters, but there is still room for improvement.
 
-## TransferLearningusingResnet50
+## Transfer Learning using Resnet50
 
 To improve performance, Iused resnet50 with weights from imagenet dataset and fine tuned it on my dataset. The inputs are raw images of size 224,224,3 which are processed and augmented.
 
@@ -155,7 +155,7 @@ To improve performance, Iused resnet50 with weights from imagenet dataset and fi
 
 This is the best model. On raw images it performed better and gave an accuracy of 0.77 compared to other models with an average of 0.65 on raw images.
 
-## EnsemblingModels
+## Ensembling Models
 
 Kaggle's Melanoma Classification competition provides both image data and tabular data about each sample. Our task is to use both types of data to predict the probability that a sample is malignant. How can we build a model that uses both images and tabular data?
 
